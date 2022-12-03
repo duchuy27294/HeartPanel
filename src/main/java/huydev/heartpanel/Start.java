@@ -5,13 +5,24 @@
 
 package huydev.heartpanel;
 
+import huydev.heartpanel.model.GridPanelModel;
+import huydev.heartpanel.model.GridPanelModelFactory;
+import huydev.heartpanel.view.GridPanelView;
+import huydev.heartpanel.controller.GridPanelController;
 /**
  *
  * @author duchu
  */
 public class Start {
 
+    public Start(){
+        GridPanelModel model = GridPanelModelFactory.getModel(40,40);
+        GridPanelView view = new GridPanelView(model);
+        GridPanelController controller = new GridPanelController(model,view);
+        view.setVisible(true);
+    }
+
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        new Start();
     }
 }
